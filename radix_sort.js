@@ -1,18 +1,16 @@
-export default function radixSort(arr) {
+function radixSort(arr) {
   let seniorRadix = calculateSeniorRadix(arr);
   let counter = 1;
 
-  sort(arr);
+  return sort(arr);
 
   // recursive
   function sort(arr) {
     if (counter > seniorRadix) {
-      console.log('qwe', arr);
       return arr;
     }
 
     let workList = createWorkList();
-    console.log(counter);
 
     let outArr = [];
 
@@ -29,7 +27,7 @@ export default function radixSort(arr) {
       }
     }
     counter++;
-    sort(outArr);
+    return sort(outArr);
   }
 
   function calculateSeniorRadix(arr) {

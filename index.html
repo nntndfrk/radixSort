@@ -1,76 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Radix sort</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <style>
+      .m-t {
+        margin-top: 0.5rem;
+      }
+      #output-textarea {
+        cursor: text;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Radix sort</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-    crossorigin="anonymous">
-  <style>
-    .m-t {
-      margin-top: .5rem
-    }
-  </style>
-</head>
-
-<body>
-  <section class="hero is-light">
-    <div class="hero-body">
+  <body>
+    <section class="hero is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Radix sort algo
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section class="section">
       <div class="container">
-        <h1 class="title">
-          Radix sort algo
-        </h1>
-      </div>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-two-fifths">
-          <label>
-            <h3 class="subtitle">
-              Input array:
-            </h3>
-            <textarea class="textarea is-danger" placeholder="e.g. 1, 4, 2, 3"></textarea>
-          </label>
+        <div class="columns">
+          <div class="column is-two-fifths">
+            <label>
+              <h3 class="subtitle">
+                Input array:
+              </h3>
+              <textarea
+                class="textarea"
+                placeholder="e.g. 1, 4, 2, 3"
+                id="input-textarea"
+                rows="4"
+              ></textarea>
+            </label>
 
-          <div class="notification is-warning">
-            <button class="delete"></button>
-            data does not match the format
+            <div
+              class="notification is-warning"
+              id="notification"
+              style="display: none"
+            >
+              <button class="delete"></button>
+              data does not match the format
+            </div>
+            <button class="button  sort is-primary m-t" id="run">
+              <span class="icon">
+                <i class="fas fa-sort-numeric-down"></i>
+              </span>
+              <span>Sort</span>
+            </button>
+            <button class="button  sort is-info m-t" id="clear">
+              <span class="icon">
+                <i class="fas fa-broom"></i>
+              </span>
+              <span>Clear</span>
+            </button>
           </div>
-          <button class="button  sort is-primary m-t">Sort</button>
         </div>
       </div>
-
-
-    </div>
-    <div class="container">
-      <div class="columns">
-        <div class="column is-two-fifths">
-          <label>
-            <h3 class="subtitle">
-              Output:
-            </h3>
-            <textarea class="textarea" disabled></textarea>
-          </label>
+      <div class="container">
+        <div class="columns">
+          <div class="column is-two-fifths">
+            <label>
+              <h3 class="subtitle">
+                Output:
+              </h3>
+              <textarea
+                class="textarea"
+                disabled
+                id="output-textarea"
+                rows="4"
+              ></textarea>
+            </label>
+          </div>
         </div>
       </div>
-
-    </div>
-    <div class="container">
-      <div class="columns">
-        <div class="column is-two-fifths">
-          <p>Number of elements (n): <span id="num-of-el"></span></p>
-          <p>Complexity O(n<sup>*</sup>k). Where k &mdash; number of radixes.</p>
+      <div class="container">
+        <div class="columns">
+          <div class="column is-two-fifths">
+            <p>Number of elements (n): <code id="num-of-el"></code></p>
+            <p style="margin-top: 1rem;">Complexity <code>O(n): n<sup>*</sup>k</code>,</p>
+            <p style="margin-left: 1rem;">
+              where <code>k</code> represented this number of digits of maximum
+              value.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <script type="module" src="radix_sort.js"></script>
-  <script type="module" src="index.js"></script>
-</body>
-
+    </section>
+    <script src="radix_sort.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>
