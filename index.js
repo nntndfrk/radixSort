@@ -17,11 +17,12 @@
     outputTextArea.value = radixSort(array).join(', ');
   });
 
-  clearBtn.addEventListener('click', clearPreviousResults);
+  function main() {
+    clearBtn.addEventListener('click', clearPreviousResults);
+    inputTextArea.addEventListener('input', clearValidationErrors);
+    inputTextArea.addEventListener('change', formatData);
+  }
 
-  inputTextArea.addEventListener('input', clearValidationErrors);
-
-  inputTextArea.addEventListener('change', formatData);
 
   function readData() {
     let inputArray = inputTextArea.value.replace(new RegExp('\n+', 'g'), '').split(',').map(item => parseInt(item));
@@ -65,4 +66,6 @@
     runBtn.classList.add('is-primary');
     inputTextArea.classList.remove('is-warning');
   }
+
+  main();
 })();
